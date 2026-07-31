@@ -14,3 +14,17 @@ pub fn double_sqrt(x : Double) -> Double {
   }
   z
 }
+
+///|
+pub fn double_exp(x : Double) -> Double {
+  let mut sum = 1.0
+  let mut term = 1.0
+  for i in 1..=30 {
+    term = term * x / i.to_double()
+    sum = sum + term
+    if term < 0.000000001 && term > -0.000000001 {
+      break
+    }
+  }
+  sum
+}
