@@ -1,10 +1,10 @@
-name = "paigack/moon_survival"
+name = "Lyl66655/moon-survival"
 
 version = "0.1.0"
 
 readme = "README.mbt.md"
 
-repository = "https://github.com/PaiGack/moon-survival"
+repository = "https://github.com/Lyl66655/moon-survival"
 
 license = "Apache-2.0"
 

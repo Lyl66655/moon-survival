@@ -1,6 +1,11 @@
 {
   "packages": [
     {
+      "root": "Lyl66655/moon-survival",
+      "rel": "src",
+      "artifact": "C:\\Users\\33046\\Desktop\\黑客松_moonbit\\一路同学\\moon_survival\\_build\\wasm-gc\\debug\\check\\src\\src.mi"
+    },
+    {
       "root": "moonbitlang/core",
       "rel": "abort",
       "artifact": "C:\\Users\\33046\\.moon\\lib\\core\\_build\\wasm-gc\\release\\bundle\\abort\\abort.mi"
@@ -379,11 +384,6 @@
       "root": "moonbitlang/core",
       "rel": "v128",
       "artifact": "C:\\Users\\33046\\.moon\\lib\\core\\_build\\wasm-gc\\release\\bundle\\v128\\v128.mi"
-    },
-    {
-      "root": "paigack/moon_survival",
-      "rel": "src",
-      "artifact": "C:\\Users\\33046\\Desktop\\黑客松_moonbit\\一路同学\\moon_survival\\_build\\wasm-gc\\debug\\check\\src\\src.mi"
     }
   ]
 }

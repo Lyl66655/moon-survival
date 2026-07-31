@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "paigack/moon_survival/src"
+package "Lyl66655/moon-survival/src"
 
 import {
   "moonbitlang/core/debug",
