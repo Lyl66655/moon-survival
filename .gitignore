@@ -1,0 +1,8 @@
+# MoonBit
+target/
+.moon/
+.repos/
+# Backup files
+*.bak
+*.swp
+*~
