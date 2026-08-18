@@ -1,6 +1,6 @@
 name = "Lyl66655/moon-survival"
 
-version = "0.2.1"
+version = "0.2.0"
 
 readme = "README.mbt.md"
 
