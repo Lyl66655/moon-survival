@@ -1,0 +1,5 @@
+import {
+  "Lyl66655/moon-survival/src",
+}
+
+pkgtype(kind: "executable")

@@ -6,24 +6,491 @@ import {
 }
 
 // Values
+pub fn absolute_risk_reduction(Double, Double) -> Double
+
+pub fn absolute_risk_reduction_from_nnt(Double) -> Double
+
+pub fn actuarial_life_table(SurvivalData, Array[Double]) -> Array[LifeTableRow]
+
+pub fn analysis_time_grid(SurvivalData, Int) -> Array[Double]
+
+pub fn assess_data_quality(SurvivalData) -> DataQualityReport
+
+pub fn benchmark_fixture(Int) -> SimulatedSurvival
+
+pub fn bootstrap_kaplan_meier(SurvivalData, Array[Double], Int, UInt) -> BootstrapKMResult
+
+pub fn bootstrap_mean(Array[Double], Int, UInt) -> PercentileInterval
+
+pub fn bootstrap_mean_difference(Array[Double], Array[Double], Int, UInt) -> PercentileInterval
+
+pub fn bootstrap_rmst(SurvivalData, Double, Int, UInt) -> PercentileInterval
+
+pub fn bootstrap_scalar(Array[Double], (Array[Double]) -> Double, Int, UInt) -> PercentileInterval
+
+pub fn brier_score(SurvivalData, Array[Double], Double) -> Double
+
+pub fn build_survival_report(String, SurvivalData, Double) -> SurvivalReport
+
+pub fn calibration_curve(SurvivalData, Array[Double], Double, Int) -> Array[CalibrationBin]
+
+pub fn chi_square_survival(Double, Int) -> Double
+
+pub fn clamp_positive(Double, floor? : Double) -> Double
+
+pub fn clamp_probability(Double) -> Double
+
+pub fn clinical_interpretation(Double, Double, Double) -> String
+
+pub fn clinically_favorable(TrialComparison, alpha? : Double) -> Bool
+
+pub fn column_means(Array[Array[Double]]) -> Array[Double]
+
+pub fn column_standard_deviations(Array[Array[Double]]) -> Array[Double]
+
+pub fn compare_survival_data(String, SurvivalData, String, SurvivalData, Double) -> TrialComparison
+
+pub fn compare_trial_arms(TrialArmSummary, TrialArmSummary, Double, Double, Double, Double) -> TrialComparison
+
+pub fn competing_event_counts(CompetingRiskData) -> Array[Int]
+
+pub fn concordance_index(SurvivalData, Array[Double]) -> ConcordanceResult
+
+pub fn correlation(Array[Double], Array[Double]) -> Double
+
+pub fn correlation_matrix(Array[Array[Double]]) -> Array[Array[Double]]
+
+pub fn covariance(Array[Double], Array[Double]) -> Double
+
+pub fn covariance_matrix(Array[Array[Double]]) -> Array[Array[Double]]
+
+pub fn cox_baseline_cumulative_hazard(Array[CoxBaselineStep], Double) -> Double
+
+pub fn cox_data_from_csv(String, String, String, Array[String]) -> Result[CoxData, CsvError]
+
+pub fn cox_default_options() -> CoxFitOptions
+
+pub fn cox_fit(CoxData, max_iterations? : Int, tolerance? : Double, ridge? : Double) -> CoxFitResult
+
+pub fn cox_fit_with_options(CoxData, CoxFitOptions) -> CoxFitResult
+
+pub fn cox_hazard_ratio_interval(CoxFitResult, Int, confidence? : Double) -> HazardRatioInterval?
+
+pub fn cox_information_matrix(CoxData, Array[Double]) -> Array[Array[Double]]
+
+pub fn cox_linear_predictor(Array[Double], Array[Double]) -> Double
+
+pub fn cox_log_partial_likelihood(CoxData, Array[Double]) -> Double
+
+pub fn cox_martingale_residuals(CoxData, CoxFitResult) -> Array[MartingaleResidual]
+
 pub fn cox_partial_likelihood(CoxData, Array[Double]) -> Double
+
+pub fn cox_ph_diagnostics(CoxData, CoxFitResult, warning_threshold? : Double) -> Array[PHDiagnostic]
+
+pub fn cox_predict_risk(Array[Double], Array[Double]) -> Double
+
+pub fn cox_predict_survival(CoxFitResult, Array[Double], Double) -> Double
+
+pub fn cox_schoenfeld_residuals(CoxData, Array[Double]) -> Array[SchoenfeldResidual]
+
+pub fn cox_score_residuals(CoxData, Array[Double]) -> Array[Array[Double]]
+
+pub fn cox_score_vector(CoxData, Array[Double]) -> Array[Double]
+
+pub fn csv_escape(String) -> String
+
+pub fn csv_parse(String, delimiter? : Char) -> Result[CsvTable, CsvError]
+
+pub fn csv_stringify(CsvTable, delimiter? : Char) -> String
+
+pub fn cumulative_incidence(CompetingRiskData) -> CIFResult
+
+pub fn curve_integrated_difference(KMResult, KMResult, Double, Int) -> Double
+
+pub fn curve_is_monotone(KMResult, Array[Double], tolerance? : Double) -> Bool
+
+pub fn curve_max_difference(KMResult, KMResult, Array[Double]) -> Double
+
+pub fn curve_points_to_csv(Array[CurvePoint]) -> String
+
+pub fn default_optimizer_options() -> OptimizerOptions
+
+pub fn default_simulation_config(Int) -> SimulationConfig
+
+pub fn design_diagnostics(Array[Array[Double]]) -> DesignDiagnostics
+
+pub fn detectable_hazard_ratio(Int, Double, Double, allocation? : Double) -> Double
+
+pub fn discrete_hazard_table(SurvivalData) -> Array[DiscreteHazardRow]
+
+pub fn dot_product(Array[Double], Array[Double]) -> Double
+
+pub fn double_distance(Double, Double) -> Double
 
 pub fn double_exp(Double) -> Double
 
+pub fn double_is_close(Double, Double, relative_tolerance? : Double, absolute_tolerance? : Double) -> Bool
+
+pub fn double_log(Double) -> Double
+
 pub fn double_sqrt(Double) -> Double
+
+pub fn doubles_to_csv(Array[Double]) -> String
+
+pub fn event_rate_bins(SurvivalData, Double, Double, Int) -> Array[EventRateBin]
+
+pub fn event_table(SurvivalData) -> Array[EventTableRow]
+
+pub fn event_table_to_markdown(Array[EventTableRow]) -> String
+
+pub fn exponential_fit(SurvivalData) -> ExponentialFit
+
+pub fn finite_difference_gradient((Array[Double]) -> Double, Array[Double], step? : Double) -> Array[Double]
+
+pub fn fixed_effect_meta_analysis(Array[Double], Array[Double]) -> MetaAnalysisResult
+
+pub fn gradient_ascent(Array[Double], (Array[Double]) -> (Double, Array[Double]), OptimizerOptions) -> OptimizationResult
+
+pub fn grouped_summary_to_csv(Array[GroupSurvivalSummary]) -> String
+
+pub fn grouped_survival_summary(Array[String], Array[Double], Array[Int], Double) -> Array[GroupSurvivalSummary]
+
+pub fn hazard_ratio_interval(Double, Double, confidence? : Double) -> HazardRatioInterval
+
+pub fn hazard_ratio_label(Double) -> String
+
+pub fn hazard_to_probability(Double, Double) -> Double
+
+pub fn hazard_to_survival(Array[Double]) -> Array[Double]
+
+pub fn high_correlation_pairs(Array[Array[Double]], threshold? : Double) -> Array[CorrelationPair]
+
+pub fn identity_matrix(Int) -> Array[Array[Double]]
+
+pub fn integrate_curve(Array[CurvePoint]) -> Double
+
+pub fn integrated_brier_score(SurvivalData, Array[Array[Double]], Array[Double]) -> Double
+
+pub fn interpolate_curve(CurvePoint, CurvePoint, Double) -> Double
+
+pub fn interval_hazards(Array[CurvePoint]) -> Array[CurvePoint]
+
+pub fn ints_to_doubles(Array[Int]) -> Array[Double]
+
+pub fn inverse_curve(Array[CurvePoint], Double) -> Double?
+
+pub fn jackknife_scalar(Array[Double], (Array[Double]) -> Double) -> PercentileInterval
 
 pub fn kaplan_meier(SurvivalData) -> KMResult
 
+pub fn kaplan_meier_with_confidence(SurvivalData, confidence? : Double) -> KMResult
+
+pub fn landmark_estimate(SurvivalData, Double, Double) -> LandmarkEstimate
+
+pub fn landmark_snapshot(TimeVaryingData, Double) -> Array[LandmarkRow]
+
+pub fn lbfgs_maximize(Array[Double], (Array[Double]) -> (Double, Array[Double]), OptimizerOptions) -> OptimizationResult
+
+pub fn lbfgs_maximize_scalar(Array[Double], (Array[Double]) -> Double, OptimizerOptions) -> OptimizationResult
+
+pub fn lbfgs_minimize_scalar(Array[Double], (Array[Double]) -> Double, OptimizerOptions) -> OptimizationResult
+
+pub fn likelihood_ratio_test(Double, Double, Int, Int) -> LikelihoodRatioResult
+
+pub fn linspace(Double, Double, Int) -> Array[Double]
+
+pub fn log_sum_exp(Array[Double]) -> Double
+
+pub fn logistic(Double) -> Double
+
+pub fn logit(Double) -> Double
+
+pub fn logrank_estimated_sample_size(Int, Double, loss_fraction? : Double) -> Int
+
+pub fn logrank_power(Int, Double, Double, allocation? : Double) -> Double
+
+pub fn logrank_required_events(Double, Double, Double, allocation? : Double) -> Int
+
+pub fn logrank_test(SurvivalData, SurvivalData) -> LogRankResult
+
+pub fn logrank_test_many(Array[SurvivalData]) -> LogRankResult
+
+pub fn make_power_plan(Double, Double, Double, Double, allocation? : Double, loss_fraction? : Double) -> PowerPlan
+
+pub fn map_doubles(Array[Double], (Double) -> Double) -> Array[Double]
+
+pub fn markov_final_markdown(MarkovModel, Array[MarkovTraceRow]) -> String
+
+pub fn markov_model_without_rewards(Array[String], Array[Array[Double]]) -> Result[MarkovModel, MarkovError]
+
+pub fn markov_trace_to_csv(Array[MarkovTraceRow]) -> String
+
+pub fn markov_validate_distribution(Array[Double]) -> Bool
+
+pub fn matrix_add(Array[Array[Double]], Array[Array[Double]]) -> Array[Array[Double]]
+
+pub fn matrix_copy(Array[Array[Double]]) -> Array[Array[Double]]
+
+pub fn matrix_determinant(Array[Array[Double]]) -> Double
+
+pub fn matrix_diagonal(Array[Array[Double]]) -> Array[Double]
+
+pub fn matrix_inverse(Array[Array[Double]]) -> Array[Array[Double]]?
+
+pub fn matrix_multiply(Array[Array[Double]], Array[Array[Double]]) -> Array[Array[Double]]
+
+pub fn matrix_ridge(Array[Array[Double]], Double) -> Array[Array[Double]]
+
+pub fn matrix_scale(Array[Array[Double]], Double) -> Array[Array[Double]]
+
+pub fn matrix_symmetrize(Array[Array[Double]]) -> Array[Array[Double]]
+
+pub fn matrix_to_string(Array[Array[Double]]) -> String
+
+pub fn matrix_trace(Array[Array[Double]]) -> Double
+
+pub fn matrix_transpose(Array[Array[Double]]) -> Array[Array[Double]]
+
+pub fn matrix_vector_multiply(Array[Array[Double]], Array[Double]) -> Array[Double]
+
+pub fn mean_doubles(Array[Double]) -> Double
+
+pub fn meta_hazard_ratio(MetaAnalysisResult) -> (Double, Double, Double)
+
+pub fn model_score(String, Int, Int, Double) -> ModelScore
+
+pub fn model_scores_to_csv(Array[ModelScore]) -> String
+
 pub fn nelson_aalen(SurvivalData) -> NAResult
+
+pub fn nelson_aalen_with_confidence(SurvivalData, confidence? : Double) -> NAResult
+
+pub fn normal_cdf(Double) -> Double
+
+pub fn normal_density(Double) -> Double
+
+pub fn normal_quantile(Double) -> Double
+
+pub fn number_needed_to_treat_from_arr(Double) -> Double
+
+pub fn numeric_summary(Array[Double]) -> NumericSummary
+
+pub fn objective_trace_is_monotone(Array[Double], tolerance? : Double) -> Bool
+
+pub fn pairwise_logrank(Array[SurvivalData]) -> Array[Array[Double]]
+
+pub fn piecewise_exponential_fit(SurvivalData, Array[Double]) -> PiecewiseExponentialFit
+
+pub fn population_variance(Array[Double]) -> Double
+
+pub fn probability_to_hazard(Double, Double) -> Double
+
+pub fn quality_flags_to_string(Array[String]) -> String
+
+pub fn quantile_doubles(Array[Double], Double) -> Double?
+
+pub fn reliability_report(SurvivalData, Double) -> ReliabilityReport
+
+pub fn residual_summary(Array[Double]) -> ResidualSummary
+
+pub fn restricted_mean_difference(SurvivalData, SurvivalData, Double) -> Double
+
+pub fn restricted_mean_loss(SurvivalData, SurvivalData, Double) -> Double
+
+pub fn sample_km_curve(KMResult, Double, Double, Int) -> Array[CurvePoint]
+
+pub fn sample_na_curve(NAResult, Double, Double, Int) -> Array[CurvePoint]
+
+pub fn sample_variance(Array[Double]) -> Double
+
+pub fn select_by_aic(Array[ModelScore]) -> ModelScore?
+
+pub fn select_by_bic(Array[ModelScore]) -> ModelScore?
+
+pub fn simulate_cox(Int, Array[Double], Double, Double, UInt) -> SimulatedCox
+
+pub fn simulate_survival(SimulationConfig) -> SimulatedSurvival
+
+pub fn solve_linear_system(Array[Array[Double]], Array[Double]) -> Array[Double]?
+
+pub fn sorted_doubles(Array[Double]) -> Array[Double]
+
+pub fn sparkline(Array[Double], width? : Int) -> String
+
+pub fn standardize_matrix(Array[Array[Double]]) -> Standardization
+
+pub fn stratified_survival(Array[String], Array[SurvivalData], Double) -> Array[StratifiedSurvival]
+
+pub fn sum_doubles(Array[Double]) -> Double
+
+pub fn summarize_trial_arm(String, SurvivalData, Double) -> TrialArmSummary
+
+pub fn survival_data_from_csv(String, String, String) -> Result[SurvivalData, CsvError]
+
+pub fn survival_data_to_csv(SurvivalData) -> String
+
+pub fn survival_risk_ratio(Double, Double) -> Double
+
+pub fn survival_to_hazard(Array[Double]) -> Array[Double]
+
+pub fn time_dependent_auc(SurvivalData, Array[Double], Double) -> Double
+
+pub fn time_varying_risk_table(TimeVaryingData) -> Array[TimeVaryingRiskRow]
+
+pub fn trial_event_rate(SurvivalData) -> Double
+
+pub fn trial_person_time(SurvivalData) -> Double
+
+pub fn two_state_survival_model(Double, Double, Double, Double) -> Result[MarkovModel, MarkovError]
+
+pub fn validate_predictions(Array[Double]) -> Bool
+
+pub fn variance_inflation_factors(Array[Array[Double]]) -> Array[Double]
+
+pub fn vector_add(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn vector_norm(Array[Double]) -> Double
+
+pub fn vector_scale(Array[Double], Double) -> Array[Double]
+
+pub fn vector_subtract(Array[Double], Array[Double]) -> Array[Double]
+
+pub fn weibull_fit(SurvivalData) -> WeibullFit
+
+pub fn weighted_kaplan_meier(WeightedSurvivalData) -> WeightedKMResult
+
+pub fn weighted_mean(Array[Double], Array[Double]) -> Double
+
+pub fn weighted_nelson_aalen(WeightedSurvivalData) -> WeightedNAResult
+
+pub fn weighted_sum(Array[Double], Array[Double]) -> Double
+
+pub fn zeros(Int) -> Array[Double]
 
 // Errors
 
 // Types and methods
+pub(all) struct BootstrapKMResult {
+  horizons : Array[Double]
+  mean : Array[Double]
+  lower : Array[Double]
+  upper : Array[Double]
+  replicates : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CIFResult {
+  steps : Array[CIFStep]
+  n_causes : Int
+  sample_size : Int
+} derive(Eq, @debug.Debug)
+pub fn CIFResult::cause_hazard_at(Self, Int, Double) -> Double
+pub fn CIFResult::predict(Self, Int, Double) -> Double
+pub fn CIFResult::predict_all(Self, Double) -> Array[Double]
+pub fn CIFResult::survival_at(Self, Double) -> Double
+pub fn CIFResult::to_csv(Self) -> String
+pub fn CIFResult::to_markdown(Self) -> String
+
+pub(all) struct CIFStep {
+  time : Double
+  n_at_risk : Int
+  n_censored : Int
+  n_events : Int
+  cause_events : Array[Int]
+  cause_hazards : Array[Double]
+  survival : Double
+  cumulative_incidence : Array[Double]
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CalibrationBin {
+  lower_risk : Double
+  upper_risk : Double
+  count : Int
+  mean_predicted_risk : Double
+  observed_event_fraction : Double
+  absolute_error : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CompetingObservation {
+  time : Double
+  cause : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CompetingRiskData {
+  observations : Array[CompetingObservation]
+  n_causes : Int
+} derive(Eq, @debug.Debug)
+pub fn CompetingRiskData::get(Self, Int) -> CompetingObservation
+pub fn CompetingRiskData::length(Self) -> Int
+pub fn CompetingRiskData::new(Array[Double], Array[Int]) -> Self
+
+pub(all) struct ConcordanceResult {
+  concordant : Int
+  discordant : Int
+  tied : Int
+  comparable : Int
+  c_index : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CorrelationPair {
+  left : Int
+  right : Int
+  correlation : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CoxBaselineStep {
+  time : Double
+  n_at_risk : Int
+  n_events : Int
+  hazard_increment : Double
+  cumulative_hazard : Double
+  baseline_survival : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CoxCoefficient {
+  index : Int
+  estimate : Double
+  standard_error : Double
+  z_value : Double
+  p_value : Double
+  hazard_ratio : Double
+  lower_hr : Double
+  upper_hr : Double
+} derive(Eq, @debug.Debug)
+
 pub(all) struct CoxData {
   observations : Array[CoxObservation]
   n_covariates : Int
 } derive(Eq, @debug.Debug)
+pub fn CoxData::covariates(Self) -> Array[Array[Double]]
+pub fn CoxData::get(Self, Int) -> CoxObservation
+pub fn CoxData::length(Self) -> Int
 pub fn CoxData::new(Array[Double], Array[Int], Array[Array[Double]]) -> Self
+pub fn CoxData::try_new(Array[Double], Array[Int], Array[Array[Double]]) -> Result[Self, DataError]
+
+pub(all) struct CoxFitOptions {
+  max_iterations : Int
+  tolerance : Double
+  ridge : Double
+  step_halving : Bool
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CoxFitResult {
+  coefficients : Array[Double]
+  standard_errors : Array[Double]
+  covariance : Array[Array[Double]]
+  log_likelihood : Double
+  null_log_likelihood : Double
+  iterations : Int
+  converged : Bool
+  coefficients_table : Array[CoxCoefficient]
+  baseline : Array[CoxBaselineStep]
+} derive(Eq, @debug.Debug)
+pub fn CoxFitResult::baseline_survival(Self, Double) -> Double
+pub fn CoxFitResult::likelihood_ratio(Self) -> Double
+pub fn CoxFitResult::linear_predictor(Self, Array[Double]) -> Double
+pub fn CoxFitResult::risk(Self, Array[Double]) -> Double
+pub fn CoxFitResult::survival_at(Self, Array[Double], Double) -> Double
 
 pub(all) struct CoxObservation {
   time : Double
@@ -31,10 +498,154 @@ pub(all) struct CoxObservation {
   covariates : Array[Double]
 } derive(Eq, @debug.Debug)
 
+pub(all) enum CsvError {
+  EmptyInput
+  UnterminatedQuote
+  RowWidthMismatch
+  MissingColumn(String)
+  InvalidNumber(String)
+  InvalidEventValue
+  DataFailure(DataError)
+} derive(Eq, @debug.Debug)
+
+pub(all) struct CsvTable {
+  headers : Array[String]
+  rows : Array[Array[String]]
+} derive(Eq, @debug.Debug)
+pub fn CsvTable::column(Self, String) -> Int?
+pub fn CsvTable::double_column(Self, String) -> Result[Array[Double], CsvError]
+pub fn CsvTable::event_column(Self, String) -> Result[Array[Int], CsvError]
+
+pub(all) struct CurvePoint {
+  time : Double
+  value : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) enum DataError {
+  LengthMismatch
+  InvalidEvent(Int)
+  InvalidTime
+  NegativeTime
+  EmptyCovariates
+  CovariateLengthMismatch
+} derive(Eq, @debug.Debug)
+
+pub(all) struct DataQualityReport {
+  sample_size : Int
+  event_count : Int
+  censored_count : Int
+  duplicate_time_count : Int
+  zero_time_count : Int
+  maximum_time : Double
+  event_fraction : Double
+  warnings : Array[String]
+  valid : Bool
+} derive(Eq, @debug.Debug)
+
+pub(all) struct DesignDiagnostics {
+  rows : Int
+  columns : Int
+  rank_proxy : Int
+  condition_proxy : Double
+  means : Array[Double]
+  scales : Array[Double]
+  variance_inflation : Array[Double]
+} derive(Eq, @debug.Debug)
+
+pub(all) struct DeterministicRng {
+  mut state : UInt
+} derive(Eq, @debug.Debug)
+pub fn DeterministicRng::new(UInt) -> Self
+pub fn DeterministicRng::next_u32(Self) -> UInt
+pub fn DeterministicRng::normal(Self) -> Double
+pub fn DeterministicRng::uniform(Self) -> Double
+
+pub(all) struct DiscreteHazardRow {
+  time : Double
+  interval_width : Double
+  n_at_risk : Int
+  events : Int
+  hazard : Double
+  survival_after : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct EventRateBin {
+  start : Double
+  end : Double
+  n_at_risk : Int
+  events : Int
+  event_rate : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct EventTableRow {
+  time : Double
+  n_at_risk : Int
+  n_events : Int
+  n_censored : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct ExponentialFit {
+  rate : Double
+  total_time : Double
+  events : Int
+  log_likelihood : Double
+} derive(Eq, @debug.Debug)
+pub fn ExponentialFit::cumulative_hazard_at(Self, Double) -> Double
+pub fn ExponentialFit::mean_time(Self) -> Double
+pub fn ExponentialFit::quantile(Self, Double) -> Double
+pub fn ExponentialFit::survival_at(Self, Double) -> Double
+
+pub(all) struct GroupSurvivalSummary {
+  group : String
+  sample_size : Int
+  events : Int
+  censoring_fraction : Double
+  median : Double?
+  restricted_mean : Double
+  survival_at_horizon : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct GroupedObservation {
+  group : String
+  time : Double
+  event : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct HazardRatioInterval {
+  hazard_ratio : Double
+  lower : Double
+  upper : Double
+  standard_error : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct HazardSegment {
+  start : Double
+  end : Double
+  exposure : Double
+  events : Int
+  rate : Double
+  mut cumulative_hazard : Double
+} derive(Eq, @debug.Debug)
+
 pub(all) struct KMResult {
   steps : Array[KMStep]
+  confidence_level : Double
+  sample_size : Int
+  event_count : Int
 } derive(Eq, @debug.Debug)
+pub fn KMResult::confidence_interval(Self, Double) -> (Double, Double)
+pub fn KMResult::hazard_at(Self, Double) -> Double
+pub fn KMResult::median(Self) -> Double?
+pub fn KMResult::observed_event_steps(Self) -> Int
 pub fn KMResult::predict(Self, Double) -> Double
+pub fn KMResult::predict_many(Self, Array[Double]) -> Array[Double]
+pub fn KMResult::quantile(Self, Double) -> Double?
+pub fn KMResult::restricted_mean(Self, Double) -> Double
+pub fn KMResult::restricted_mean_after(Self, Double, Double) -> Double
+pub fn KMResult::step_at(Self, Double) -> KMStep?
+pub fn KMResult::survival_at(Self, Double) -> Double
+pub fn KMResult::to_ascii(Self, width? : Int) -> String
+pub fn KMResult::to_csv(Self) -> String
 
 pub(all) struct KMStep {
   time : Double
@@ -43,12 +654,140 @@ pub(all) struct KMStep {
   n_censored : Int
   survival : Double
   std_err : Double
+  cumulative_variance : Double
+  lower_ci : Double
+  upper_ci : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct LandmarkEstimate {
+  landmark : Double
+  eligible : Int
+  subsequent_events : Int
+  horizon : Double
+  survival : Double
+  restricted_mean : Double
+} derive(Eq, @debug.Debug)
+pub fn LandmarkEstimate::to_csv(Self) -> String
+
+pub(all) struct LandmarkRow {
+  subject : Int
+  time : Double
+  covariates : Array[Double]
+  event_after_landmark : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct LifeTableRow {
+  start : Double
+  end : Double
+  n_entering : Int
+  withdrawals : Int
+  events : Int
+  effective_at_risk : Double
+  conditional_survival : Double
+  cumulative_survival : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct LikelihoodRatioResult {
+  statistic : Double
+  degrees_of_freedom : Int
+  p_value : Double
+  larger_model_preferred : Bool
+} derive(Eq, @debug.Debug)
+
+pub(all) struct LogRankResult {
+  statistic : Double
+  degrees_of_freedom : Int
+  p_value : Double
+  observed : Array[Double]
+  expected : Array[Double]
+  variance : Double
+  events : Int
+} derive(Eq, @debug.Debug)
+pub fn LogRankResult::event_ratio(Self) -> Double
+pub fn LogRankResult::z_score(Self) -> Double
+
+pub(all) enum MarkovError {
+  EmptyStateSpace
+  StateNameMismatch
+  TransitionRowCountMismatch
+  TransitionColumnCountMismatch(Int)
+  InvalidProbability(Int, Int, Double)
+  RowNotStochastic(Int, Double)
+  RewardLengthMismatch
+  InvalidInitialState
+  InvalidHorizon
+  InvalidDiscount
+} derive(Eq, @debug.Debug)
+
+pub(all) struct MarkovModel {
+  states : Array[String]
+  transition : Array[Array[Double]]
+  rewards : Array[Double]
+} derive(Eq, @debug.Debug)
+pub fn MarkovModel::absorbing_states(Self) -> Array[Int]
+pub fn MarkovModel::absorption_probability(Self, Int, Int) -> Double
+pub fn MarkovModel::discounted_reward(Self, Int, Int, Double) -> Double
+pub fn MarkovModel::distribution_after(Self, Int, Int) -> Array[Double]
+pub fn MarkovModel::distribution_from(Self, Array[Double], Int) -> Array[Double]
+pub fn MarkovModel::expected_time_to_absorption(Self, Int, max_periods? : Int) -> Double
+pub fn MarkovModel::state_count(Self) -> Int
+pub fn MarkovModel::state_index(Self, String) -> Int?
+pub fn MarkovModel::state_names(Self) -> Array[String]
+pub fn MarkovModel::stationary_distribution(Self, tolerance? : Double, max_iterations? : Int) -> Array[Double]
+pub fn MarkovModel::trace(Self, Int, Int, discount? : Double) -> Array[MarkovTraceRow]
+pub fn MarkovModel::trace_from(Self, Array[Double], Int, discount? : Double) -> Array[MarkovTraceRow]
+pub fn MarkovModel::transition_matrix(Self) -> Array[Array[Double]]
+pub fn MarkovModel::try_new(Array[String], Array[Array[Double]], Array[Double]) -> Result[Self, MarkovError]
+
+pub(all) struct MarkovTraceRow {
+  period : Int
+  occupancy : Array[Double]
+  total_reward : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct MartingaleResidual {
+  time : Double
+  event : Int
+  risk : Double
+  expected_events : Double
+  residual : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct MetaAnalysisResult {
+  estimate : Double
+  standard_error : Double
+  lower : Double
+  upper : Double
+  z_value : Double
+  p_value : Double
+  heterogeneity_q : Double
+  studies : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct ModelScore {
+  name : String
+  parameters : Int
+  observations : Int
+  log_likelihood : Double
+  aic : Double
+  bic : Double
+  aicc : Double
 } derive(Eq, @debug.Debug)
 
 pub(all) struct NAResult {
   steps : Array[NAStep]
+  confidence_level : Double
+  sample_size : Int
+  event_count : Int
 } derive(Eq, @debug.Debug)
+pub fn NAResult::confidence_interval(Self, Double) -> (Double, Double)
+pub fn NAResult::cumulative_hazard_at(Self, Double) -> Double
+pub fn NAResult::increment_at(Self, Double) -> Double
 pub fn NAResult::predict(Self, Double) -> Double
+pub fn NAResult::predict_many(Self, Array[Double]) -> Array[Double]
+pub fn NAResult::step_at(Self, Double) -> NAStep?
+pub fn NAResult::survival_at(Self, Double) -> Double
+pub fn NAResult::to_csv(Self) -> String
 
 pub(all) struct NAStep {
   time : Double
@@ -56,6 +795,22 @@ pub(all) struct NAStep {
   n_events : Int
   n_censored : Int
   cum_hazard : Double
+  variance : Double
+  std_err : Double
+  lower_ci : Double
+  upper_ci : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct NumericSummary {
+  count : Int
+  mean : Double
+  variance : Double
+  standard_deviation : Double
+  minimum : Double
+  first_quartile : Double
+  median : Double
+  third_quartile : Double
+  maximum : Double
 } derive(Eq, @debug.Debug)
 
 pub(all) struct Observation {
@@ -63,14 +818,331 @@ pub(all) struct Observation {
   event : Int
 } derive(Compare, Eq, @debug.Debug)
 
+pub(all) struct OnlineEventRate {
+  mut exposure : Double
+  mut events : Int
+  mut censored : Int
+} derive(Eq, @debug.Debug)
+pub fn OnlineEventRate::add(Self, Double, Int) -> Unit
+pub fn OnlineEventRate::censoring_fraction(Self) -> Double
+pub fn OnlineEventRate::new() -> Self
+pub fn OnlineEventRate::rate(Self) -> Double
+
+pub(all) struct OnlineMoments {
+  mut count : Int
+  mut mean : Double
+  mut m2 : Double
+  mut minimum : Double
+  mut maximum : Double
+} derive(Eq, @debug.Debug)
+pub fn OnlineMoments::add(Self, Double) -> Unit
+pub fn OnlineMoments::merge(Self, Self) -> Unit
+pub fn OnlineMoments::new() -> Self
+pub fn OnlineMoments::summary(Self) -> NumericSummary
+pub fn OnlineMoments::variance(Self) -> Double
+
+pub(all) struct OptimizationResult {
+  parameters : Array[Double]
+  objective : Double
+  gradient : Array[Double]
+  iterations : Int
+  evaluations : Int
+  converged : Bool
+} derive(Eq, @debug.Debug)
+
+pub(all) struct OptimizerOptions {
+  max_iterations : Int
+  tolerance : Double
+  learning_rate : Double
+  memory : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct PHDiagnostic {
+  covariate : Int
+  residual_time_correlation : Double
+  residual_mean : Double
+  residual_variance : Double
+  warning : Bool
+} derive(Eq, @debug.Debug)
+
+pub(all) struct PercentileInterval {
+  estimate : Double
+  standard_error : Double
+  lower : Double
+  upper : Double
+  replicates : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct PiecewiseExponentialFit {
+  segments : Array[HazardSegment]
+  total_events : Int
+  total_exposure : Double
+  log_likelihood : Double
+} derive(Eq, @debug.Debug)
+pub fn PiecewiseExponentialFit::cumulative_hazard_at(Self, Double) -> Double
+pub fn PiecewiseExponentialFit::hazard_at(Self, Double) -> Double
+pub fn PiecewiseExponentialFit::quantile(Self, Double) -> Double
+pub fn PiecewiseExponentialFit::survival_at(Self, Double) -> Double
+pub fn PiecewiseExponentialFit::to_csv(Self) -> String
+
+pub(all) struct PowerPlan {
+  hazard_ratio : Double
+  alpha : Double
+  target_power : Double
+  allocation : Double
+  required_events : Int
+  estimated_sample_size : Int
+} derive(Eq, @debug.Debug)
+pub fn PowerPlan::to_markdown(Self) -> String
+
+pub(all) struct ReliabilityReport {
+  sample_size : Int
+  events : Int
+  censoring_fraction : Double
+  empirical_rmst : Double
+  exponential_rate : Double
+  weibull_shape : Double
+  weibull_scale : Double
+  weibull_log_likelihood : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct ResidualSummary {
+  mean : Double
+  variance : Double
+  standard_deviation : Double
+  minimum : Double
+  maximum : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct SchoenfeldResidual {
+  time : Double
+  covariate : Int
+  observed : Double
+  expected : Double
+  residual : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct SimulatedCox {
+  data : CoxData
+  true_coefficients : Array[Double]
+  latent_failure_times : Array[Double]
+} derive(Eq, @debug.Debug)
+
+pub(all) struct SimulatedSurvival {
+  data : SurvivalData
+  latent_failure_times : Array[Double]
+  censoring_times : Array[Double]
+} derive(Eq, @debug.Debug)
+pub fn SimulatedSurvival::censoring_fraction(Self) -> Double
+pub fn SimulatedSurvival::diagnostics(Self, Double) -> SimulationDiagnostics
+
+pub(all) struct SimulationConfig {
+  sample_size : Int
+  baseline_rate : Double
+  censor_rate : Double
+  shape : Double
+  seed : UInt
+} derive(Eq, @debug.Debug)
+
+pub(all) struct SimulationDiagnostics {
+  sample_size : Int
+  observed_events : Int
+  censoring_fraction : Double
+  latent_mean : Double
+  observed_rmst : Double
+  median_survival : Double?
+} derive(Eq, @debug.Debug)
+
+pub(all) struct Standardization {
+  means : Array[Double]
+  scales : Array[Double]
+  values : Array[Array[Double]]
+} derive(Eq, @debug.Debug)
+pub fn Standardization::transform(Self, Array[Double]) -> Array[Double]
+
+pub(all) struct StratifiedSurvival {
+  stratum : String
+  sample_size : Int
+  events : Int
+  survival : Double
+  restricted_mean : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct SurvivalAccumulator {
+  times : Array[Double]
+  events : Array[Int]
+} derive(Eq, @debug.Debug)
+pub fn SurvivalAccumulator::add(Self, Double, Int) -> Unit
+pub fn SurvivalAccumulator::add_batch(Self, Array[Double], Array[Int]) -> Unit
+pub fn SurvivalAccumulator::checkpoint(Self, String, Double) -> SurvivalCheckpoint
+pub fn SurvivalAccumulator::event_count(Self) -> Int
+pub fn SurvivalAccumulator::fit(Self) -> KMResult
+pub fn SurvivalAccumulator::length(Self) -> Int
+pub fn SurvivalAccumulator::merge(Self, Self) -> Unit
+pub fn SurvivalAccumulator::new() -> Self
+pub fn SurvivalAccumulator::snapshot(Self) -> SurvivalData
+pub fn SurvivalAccumulator::to_csv(Self) -> String
+
+pub(all) struct SurvivalCheckpoint {
+  label : String
+  sample_size : Int
+  events : Int
+  median : Double?
+  restricted_mean : Double
+} derive(Eq, @debug.Debug)
+
 pub(all) struct SurvivalData {
   observations : Array[Observation]
 } derive(Eq, @debug.Debug)
+pub fn SurvivalData::between(Self, Double, Double) -> Self
+pub fn SurvivalData::censored_count(Self) -> Int
+pub fn SurvivalData::censoring_times(Self) -> Array[Double]
+pub fn SurvivalData::event_count(Self) -> Int
+pub fn SurvivalData::event_times(Self) -> Array[Double]
+pub fn SurvivalData::from_observations(Array[Observation]) -> Self
 pub fn SurvivalData::get(Self, Int) -> Observation
 pub fn SurvivalData::length(Self) -> Int
 pub fn SurvivalData::new(Array[Double], Array[Int]) -> Self
+pub fn SurvivalData::summary(Self) -> SurvivalSummary
+pub fn SurvivalData::to_array(Self) -> Array[Observation]
+pub fn SurvivalData::try_new(Array[Double], Array[Int]) -> Result[Self, DataError]
+
+pub(all) struct SurvivalReport {
+  title : String
+  summary : SurvivalSummary
+  median : Double?
+  restricted_mean : Double
+  exponential_rate : Double
+  weibull_shape : Double
+  weibull_scale : Double
+  logrank : LogRankResult?
+  quality_flags : Array[String]
+} derive(Eq, @debug.Debug)
+pub fn SurvivalReport::is_analysis_ready(Self) -> Bool
+pub fn SurvivalReport::to_csv(Self) -> String
+pub fn SurvivalReport::to_markdown(Self) -> String
+pub fn SurvivalReport::with_logrank(Self, LogRankResult) -> Self
+
+pub(all) struct SurvivalSummary {
+  n : Int
+  events : Int
+  censored : Int
+  min_time : Double
+  max_time : Double
+  event_fraction : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct TimeVaryingData {
+  observations : Array[TimeVaryingObservation]
+  n_covariates : Int
+  n_subjects : Int
+} derive(Eq, @debug.Debug)
+pub fn TimeVaryingData::get(Self, Int) -> TimeVaryingObservation
+pub fn TimeVaryingData::is_valid_subject(Self, Int) -> Bool
+pub fn TimeVaryingData::length(Self) -> Int
+pub fn TimeVaryingData::new(Array[Double], Array[Double], Array[Int], Array[Array[Double]], Array[Int]) -> Self
+pub fn TimeVaryingData::subject_intervals(Self, Int) -> Array[TimeVaryingObservation]
+pub fn TimeVaryingData::to_csv(Self) -> String
+pub fn TimeVaryingData::to_survival_data(Self) -> SurvivalData
+
+pub(all) struct TimeVaryingObservation {
+  start : Double
+  stop : Double
+  event : Int
+  covariates : Array[Double]
+  subject : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct TimeVaryingRiskRow {
+  stop : Double
+  n_at_risk : Int
+  n_events : Int
+} derive(Eq, @debug.Debug)
+
+pub(all) struct TrialArmSummary {
+  name : String
+  sample_size : Int
+  events : Int
+  censored : Int
+  event_fraction : Double
+  median_survival : Double?
+  survival_at_horizon : Double
+  restricted_mean : Double
+  person_time : Double
+} derive(Eq, @debug.Debug)
+pub fn TrialArmSummary::to_markdown_row(Self) -> String
+
+pub(all) struct TrialComparison {
+  control : TrialArmSummary
+  treatment : TrialArmSummary
+  hazard_ratio : Double
+  hazard_ratio_lower : Double
+  hazard_ratio_upper : Double
+  logrank_p_value : Double
+  restricted_mean_difference : Double
+  absolute_risk_reduction : Double
+  number_needed_to_treat : Double
+  interpretation : String
+} derive(Eq, @debug.Debug)
+pub fn TrialComparison::to_markdown(Self) -> String
+
+pub(all) struct WeibullFit {
+  shape : Double
+  scale : Double
+  log_likelihood : Double
+  iterations : Int
+  converged : Bool
+  events : Int
+  total_time : Double
+} derive(Eq, @debug.Debug)
+pub fn WeibullFit::cumulative_hazard_at(Self, Double) -> Double
+pub fn WeibullFit::hazard_at(Self, Double) -> Double
+pub fn WeibullFit::mean_time(Self) -> Double
+pub fn WeibullFit::quantile(Self, Double) -> Double
+pub fn WeibullFit::survival_at(Self, Double) -> Double
+
+pub(all) struct WeightedKMResult {
+  steps : Array[WeightedKMStep]
+} derive(Eq, @debug.Debug)
+pub fn WeightedKMResult::predict(Self, Double) -> Double
+
+pub(all) struct WeightedKMStep {
+  time : Double
+  weight_at_risk : Double
+  weight_events : Double
+  weight_censored : Double
+  survival : Double
+  std_err : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct WeightedNAResult {
+  steps : Array[WeightedNAStep]
+} derive(Eq, @debug.Debug)
+pub fn WeightedNAResult::predict(Self, Double) -> Double
+
+pub(all) struct WeightedNAStep {
+  time : Double
+  weight_at_risk : Double
+  weight_events : Double
+  weight_censored : Double
+  cum_hazard : Double
+  variance : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct WeightedObservation {
+  time : Double
+  event : Int
+  weight : Double
+} derive(Eq, @debug.Debug)
+
+pub(all) struct WeightedSurvivalData {
+  observations : Array[WeightedObservation]
+} derive(Eq, @debug.Debug)
+pub fn WeightedSurvivalData::get(Self, Int) -> WeightedObservation
+pub fn WeightedSurvivalData::length(Self) -> Int
+pub fn WeightedSurvivalData::new(Array[Double], Array[Int], Array[Double]) -> Self
+pub fn WeightedSurvivalData::try_new(Array[Double], Array[Int], Array[Double]) -> Result[Self, DataError]
 
 // Type aliases
 
 // Traits
-

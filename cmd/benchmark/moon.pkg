@@ -1,0 +1,6 @@
+import {
+  "Lyl66655/moon-survival/src",
+  "moonbitlang/core/env",
+}
+
+pkgtype(kind: "executable")

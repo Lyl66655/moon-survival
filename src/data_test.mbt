@@ -11,17 +11,26 @@ test "SurvivalData::new normal" {
   // t=3.0, e=0
   // t=5.0, e=0
   inspect(data.length(), content="5")
-  inspect(data.get(0).time, content=(
-    #|1
-  ))
+  inspect(
+    data.get(0).time,
+    content=(
+      #|1
+    ),
+  )
   inspect(data.get(0).event, content="1")
-  inspect(data.get(2).time, content=(
-    #|3
-  ))
+  inspect(
+    data.get(2).time,
+    content=(
+      #|3
+    ),
+  )
   inspect(data.get(2).event, content="1")
-  inspect(data.get(3).time, content=(
-    #|3
-  ))
+  inspect(
+    data.get(3).time,
+    content=(
+      #|3
+    ),
+  )
   inspect(data.get(3).event, content="0")
 }
 

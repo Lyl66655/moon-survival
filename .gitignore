@@ -2,6 +2,8 @@
 target/
 .moon/
 .repos/
+_build/
+.mooncakes/
 # Backup files
 *.bak
 *.swp
