@@ -28,6 +28,11 @@ module.
   pairwise comparisons, and RMST differences.
 - Reliability models, power planning, bootstrap/jackknife resampling, grouped
   analysis, model selection, and calibration metrics.
+- Parametric and AFT models, interval-censored Turnbull fitting, IPCW analysis,
+  recurrent events, multi-state transitions, validation pipelines, and missing
+  data workflows.
+- Risk stratification, calibration, feature engineering, decision analysis,
+  clinical endpoints, audit trails, reproducible exports, and trial operations.
 - CSV ingestion/export, time-varying covariates, incremental accumulation,
   deterministic simulation, Markdown/CSV reports, ASCII visualization, and
   finite-state Markov cohort analysis.
@@ -84,17 +89,22 @@ visualization, and command entrypoints consume those public APIs.
 ## Benchmark
 
 The deterministic fixture contains 5,000 observations, 4,403 events, and
-11.94% censoring. A reference run on 2026-08-18 with MoonBit 0.1.20260814 and
-moonc 0.10.8 measured:
+11.94% censoring. The following ranges were observed across three consecutive
+native release runs on 2026-08-20 with MoonBit 0.1.20260814 and moonc 0.10.8;
+timings vary by host:
 
 | Workload | Result |
 |---|---:|
-| Kaplan-Meier, 5,000 observations | 1 ms |
-| Nelson-Aalen, 5,000 observations | 1 ms |
-| Cox, 500 rows and 3 covariates | 4 iterations, 54 ms |
+| Kaplan-Meier, 5,000 observations | 5,000 steps, 1–3 ms |
+| Nelson-Aalen, 5,000 observations | 5,000 steps, 0–1 ms |
+| Cox, 500 rows and 3 covariates | 4 iterations, converged, 54–58 ms |
+| Exponential parametric fit, 5,000 observations | 0–1 ms |
+| IPCW weights and curve, 5,000 observations | 5,000 steps, 28–32 ms |
+| Two-group KM summary, 5,000 observations per group | 2 curves, 2–6 ms |
 
-The fixture, event counts, censoring fraction, convergence status, and RMST
-are deterministic. Timings depend on the host machine.
+The fixture, event counts, censoring fraction, convergence status, effective
+sample size (4,951.7646), group survival at 30 (0.0034694), and RMST at 30
+(7.4435516) are deterministic. Timings depend on the host machine.
 
 ## Tests
 
@@ -106,10 +116,11 @@ moon test --target native --deny-warn
 moon info
 ~~~
 
-The regression suite contains 109 passing tests covering empty data,
+The regression suite contains 119 passing tests covering empty data,
 all-censored data, ties, invalid events, malformed matrices, singular
-systems, CSV quoting, numerical extremes, model edge cases, and deterministic
-performance fixtures.
+systems, CSV quoting, numerical extremes, model edge cases, interval and
+right censoring, IPCW, recurrent and multi-state data, validation, export,
+feature engineering, and deterministic performance fixtures.
 
 ## CI
 
